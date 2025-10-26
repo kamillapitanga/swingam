@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>🎉 Bday Bya & Open Bar do Casal Marcelo e Kamilla</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#050406;
+      --gold:#c9a34a;
+      --gold-strong:#d4ab3a;
+      --panel:rgba(255,255,255,0.02);
+      --muted:#a8a3a0;
+      --text:#fffaf6;
+      --border:rgba(255,255,255,0.04);
+      --glass:rgba(255,255,255,0.02);
+      --shadow:rgba(0,0,0,0.7);
+      --accent:#d49a2a;
+      --danger-bg:#8b0000; /* fundo vermelho para regras */
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{
+      font-family:'Poppins',sans-serif;
+      background:
+        radial-gradient(800px 400px at 10% 10%, rgba(210,150,50,0.03), transparent 8%),
+        radial-gradient(900px 300px at 90% 80%, rgba(200,150,50,0.02), transparent 6%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      display:flex;
+      flex-direction:column;
+      min-height:100vh;
+    }
+
+    /* HERO BANNER TOP */
+    .hero {
+      position:relative;
+      width:100%;
+      height:420px;
+      overflow:hidden;
+      display:block;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(0.95) contrast(1.02);
+      transform-origin:center;
+    }
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .hero-title{
+      text-align:center;
+      color:var(--text);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      max-width:1100px;
+    }
+    .hero-title h1{
+      font-size:clamp(1.6rem,4.6vw,3rem);
+      margin-bottom:8px;
+      font-weight:900;
+      text-shadow:0 6px 30px rgba(0,0,0,0.6);
+    }
+    .hero-title p{
+      font-size:clamp(0.95rem,2.4vw,1.1rem);
+      color:var(--muted);
+      font-weight:600;
+    }
+
+    header{
+      padding:14px 20px;
+      text-align:center;
+      background:linear-gradient(90deg, rgba(0,0,0,0.18), rgba(0,0,0,0.25));
+      border-bottom:1px solid var(--border);
+    }
+    header p{ color:var(--muted); font-weight:500 }
+
+    main{
+      max-width:1200px;
+      width:94%;
+      margin:-60px auto 30px;
+      padding:26px;
+      border-radius:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.012), transparent 30%);
+      border:1px solid var(--border);
+      box-shadow: 0 28px 70px var(--shadow);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      position:relative;
+      z-index:6;
+    }
+
+    .top-row{
+      display:flex;
+      gap:22px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .left{
+      flex:1 1 680px;
+    }
+    .right{
+      width:360px;
+      min-width:260px;
+    }
+    @media (max-width:1050px){
+      .right{ width:100%; order:2 }
+      .left{ order:1 }
+      main{ margin-top:-40px }
+    }
+
+    .meta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:12px;
+    }
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      background: linear-gradient(90deg, rgba(201,163,74,0.08), rgba(201,163,74,0.04));
+      border:1px solid rgba(201,163,74,0.06);
+      color:var(--gold);
+      font-weight:700;
+      font-size:0.92rem;
+    }
+
+    .hero-img {
+      width:100%;
+      height:320px;
+      object-fit:cover;
+      border-radius:10px;
+      margin-top:18px;
+      border:1px solid var(--border);
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+    }
+
+    h2{
+      color:var(--gold);
+      margin:20px 0 12px;
+      font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:0.6px;
+      position:relative;
+    }
+    h2::after{
+      content:'';
+      position:absolute;
+      left:0; bottom:-8px;
+      width:70px; height:4px;
+      background: linear-gradient(90deg, var(--gold), rgba(255,255,255,0.06));
+      border-radius:4px;
+    }
+
+    /* Programação & Open Drink */
+    .program{
+      padding:16px;
+      border-radius:12px;
+      background:var(--panel);
+      border:1px solid var(--border);
+      color:var(--muted);
+    }
+    .program p{ color:var(--text); font-weight:600 }
+    .open-list{ margin-top:12px; display:flex; gap:10px; flex-wrap:wrap }
+    .open-item{
+      background: linear-gradient(90deg, rgba(201,163,74,0.06), rgba(201,163,74,0.03));
+      padding:8px 12px; border-radius:10px;
+      color:var(--gold); font-weight:800; font-size:0.95rem;
+      border:1px solid rgba(201,163,74,0.08);
+    }
+    .hours{ margin-top:10px; color:var(--muted); font-weight:500 }
+
+    /* VALUES */
+    .values{
+      margin-top:16px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+      gap:14px;
+    }
+    .value{
+      border-radius:12px;
+      padding:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
+      border: 1px solid rgba(201,163,74,0.06);
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+      min-height:110px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .role{ color:var(--gold); font-weight:900; text-transform:uppercase; letter-spacing:0.6px }
+    .prices{ display:flex; gap:10px; margin-top:10px; flex-wrap:wrap }
+    .chip{ padding:8px 12px; border-radius:10px; background:transparent; border:1px solid var(--border); color:var(--text); min-width:110px; text-align:center; font-weight:800 }
+    .chip .big{ display:block; font-size:1.25rem; font-weight:900; color:var(--text) }
+    .chip .sub{ display:block; color:var(--muted); font-size:0.88rem; font-weight:600 }
+
+    /* RESERVA (aside) */
+    .reserva{
+      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));
+      border-radius:12px;
+      padding:16px;
+      border:1px solid rgba(201,163,74,0.08);
+      box-shadow:0 12px 40px rgba(0,0,0,0.55);
+      position:sticky;
+      top:22px;
+    }
+    .reserva label{ display:block; margin-bottom:6px; color:var(--gold); font-weight:800; font-size:0.92rem }
+    .reserva input, .reserva select{
+      width:100%; padding:10px 12px; border-radius:10px; border:1px solid var(--border);
+      background:rgba(0,0,0,0.45); color:var(--text); font-size:0.95rem; outline:none;
+    }
+    .agree{ display:flex; gap:10px; align-items:flex-start; margin-top:8px; color:var(--muted); font-weight:600 }
+    .agree input[type="checkbox"]{
+      width:18px; height:18px;
+      border-radius:4px;
+      border:1px solid var(--gold);
+      appearance:none;
+      background:rgba(0,0,0,0.45);
+      position:relative;
+      cursor:pointer;
+    }
+    .agree input[type="checkbox"]:checked::after{
+      content:'✔';
+      color:#07100b;
+      position:absolute;
+      top:-2px; left:2px;
+      font-weight:bold;
+      font-size:1rem;
+    }
+    .btn{
+      margin-top:12px; width:100%; padding:12px 14px; border-radius:999px; border:none; cursor:pointer;
+      background: linear-gradient(90deg, var(--gold), var(--gold-strong)); color:#07100b; font-weight:900; font-size:1rem;
+      box-shadow:0 12px 36px rgba(201,163,74,0.12);
+    }
+    .btn:hover{ transform:translateY(-3px); box-shadow:0 18px 42px rgba(201,163,74,0.22) }
+
+    /* REGRAS */
+    .rules{
+      margin-top:16px;
+      padding:16px;
+      border-radius:10px;
+      background:var(--danger-bg);
+      color:#fff;
+      font-weight:700;
+    }
+    .additional{
+      margin-top:12px;
+      font-size:0.92rem;
+      font-weight:600;
+      color:var(--text);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <p>Evento exclusivo Bya - 22 de Novembro - Tarumã, Condomínio Vivenda Verde</p>
+  </header>
+
+  <div class="hero">
+    <img src="banner2.jpg" alt="Banner do Evento Bya">
+    <div class="hero-overlay">
+      <div class="hero-title">
+        <h1>🎉 Aniversário da Bya</h1>
+        <p>Comemoração VIP com presença da Débora Wife e seu marido</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="top-row">
+      <div class="left">
+        <h2>Sobre a festa</h2>
+        <p>Vamos comemorar o aniversário da Bya em clima VIP, evento fechado para casais, e simpatizantes, solteiros mediante reserva.</p>
+
+        <div class="rules">
+          <p>Regras obrigatórias: Evento para maiores de 18 anos. Respeito mútuo é obrigatório. Fotos são proibidas. Uso de drogas ilícitas é proibido.</p>
+        </div>
+
+        <div class="additional">
+          <p>Informações adicionais: Petisco de churrasco liberado até acabar o estoque. Casais e mulheres têm direito a bronze gratuito na compra do passaporte.</p>
+        </div>
+      </div>
+
+      <aside class="right">
+        <form class="reserva">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Seu email" required>
+
+          <label for="whatsapp">Whatsapp</label>
+          <input type="text" id="whatsapp" name="whatsapp" placeholder="(92) 9XXXX-XXXX" required>
+
+          <label for="tipo">Tipo de participação</label>
+          <select id="tipo" name="tipo" required>
+            <option value="" disabled selected>Selecione</option>
+            <option value="casal">Casal</option>
+            <option value="solteiro">Solteiro</option>
+            <option value="mulher">Mulher</option>
+          </select>
+
+          <div class="agree">
+            <input type="checkbox" id="regras" required>
+            <label for="regras">Li e concordo com as regras do evento</label>
+          </div>
+
+          <button type="submit" class="btn">Confirmar Presença</button>
+        </form>
+      </aside>
+    </div>
+  </main>
+</body>
+</html>
